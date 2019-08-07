@@ -6,7 +6,6 @@ const mysql = require('mysql');
 let connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '',
     database: 'pizza-schema'
 });
 
@@ -22,7 +21,6 @@ connection.query("INSERT INTO clients (nickname, email, password) " +
 connection.query('SELECT * FROM clients', (err, rows) => {
   if (err) throw err;
 
-  let allColumnsJSON = JSON.stringify(rows[0]);
   for (let k in rows) {
     console.log(rows[k]);
   }
